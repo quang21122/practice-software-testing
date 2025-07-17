@@ -9,6 +9,13 @@
   "license": "ISC",
   "devDependencies": {
     "@playwright/test": "^1.51.1",
-    "@types/node": "^20.11.17"
+    "@types/node": "^20.11.17",
+    "axe-core": "^4.10.3",
+    "cypress-axe": "^1.6.0"
+  },
+  "dependencies": {
+    "@percy/cli": "^1.31.0",
+    "@percy/cypress": "^3.1.6",
+    "cypress": "^14.5.2"
   }
 }
