@@ -1,0 +1,11 @@
+version: 2
+snapshot:
+  widths: [375, 1280]
+  min-height: 1024
+  percy-css: |
+    .percy-hide { display: none !important; }
+discovery:
+  allowed-hostnames:
+    - localhost
+    - 127.0.0.1
+  network-idle-timeout: 100

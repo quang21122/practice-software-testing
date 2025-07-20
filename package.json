@@ -3,7 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "test:percy": "percy exec -- cypress run",
+    "test:percy:open": "percy exec -- cypress open",
+    "cypress:run": "cypress run",
+    "cypress:open": "cypress open"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
