@@ -7,7 +7,14 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "test:registration": "cypress run --spec 'cypress/e2e/registration/**/*.cy.js'",
+    "test:cross-browser": "node cypress/scripts/run-cross-browser-tests.js",
+    "test:chrome": "cypress run --browser chrome --spec 'cypress/e2e/registration/complete_checklist.cy.js'",
+    "test:firefox": "cypress run --browser firefox --spec 'cypress/e2e/registration/complete_checklist.cy.js'",
+    "test:edge": "cypress run --browser edge --spec 'cypress/e2e/registration/complete_checklist.cy.js'"
   },
   "private": true,
   "dependencies": {
@@ -47,6 +54,7 @@
     "@types/node": "18.14.2",
     "@typescript-eslint/eslint-plugin": "5.54.0",
     "@typescript-eslint/parser": "5.54.0",
+    "cypress": "^14.5.2",
     "eslint": "8.35.0",
     "jasmine-core": "4.5.0",
     "karma": "6.4.1",
