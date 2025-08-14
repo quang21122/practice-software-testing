@@ -1,0 +1,68 @@
+testId,testDescription,firstName,lastName,dateOfBirth,address,postcode,city,country,state,phone,email,password,expectedResult,testType
+FN-RE01,Valid First Name with alphabetic characters only,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user1@example.com,Password1$,success,EP
+FN-RE02,Valid First Name with allowed special characters,Mary-Ann O'Brien,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user2@example.com,Password1$,success,EP
+FN-RE03,Invalid First Name with disallowed special characters,John@Doe,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user3@example.com,Password1$,error,EP
+FN-RE04,Invalid First Name with numbers,John123,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user4@example.com,Password1$,error,EP
+FN-RE05,Invalid empty First Name,,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user5@example.com,Password1$,error,EP
+FN-RE06,Valid First Name with minimum length,J,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user6@example.com,Password1$,success,BVA
+FN-RE07,Valid First Name with maximum length 40 chars,Abcdefghijklmnopqrstuvwxyzabcdefghijklmn,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user7@example.com,Password1$,success,BVA
+FN-RE08,Invalid First Name exceeding maximum length,Abcdefghijklmnopqrstuvwxyzabcdefghijklmno,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user8@example.com,Password1$,error,BVA
+FN-RE09,Verify XSS prevention in text fields,<b onmouseover=alert('Wufff!')>click me!</b>,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user9@example.com,Password1$,error,EP
+LN-RE01,Valid Last Name with alphabetic characters only,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user10@example.com,Password1$,success,EP
+LN-RE02,Valid Last Name with allowed special characters,John,O'Neill-Jones,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user11@example.com,Password1$,success,EP
+LN-RE03,Invalid Last Name with disallowed special characters,John,Smith@Jones,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user12@example.com,Password1$,error,EP
+LN-RE04,Valid Last Name with minimum length,John,S,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user13@example.com,Password1$,success,BVA
+LN-RE05,Valid Last Name with maximum length 20 chars,John,Abcdefghijklmnopqrst,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user14@example.com,Password1$,success,BVA
+LN-RE06,Invalid Last Name exceeding maximum length,John,Abcdefghijklmnopqrstu,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user15@example.com,Password1$,error,BVA
+DB-RE01,Valid Date of Birth for adult,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user16@example.com,Password1$,success,EP
+DB-RE02,Invalid Date of Birth for underage person,John,Smith,2008-06-08,123 Main Street,12345,New York,United States,California,011234567,user17@example.com,Password1$,error,EP
+DB-RE03,Invalid Date of Birth for elderly person,John,Smith,1949-06-08,123 Main Street,12345,New York,United States,California,011234567,user18@example.com,Password1$,error,EP
+DB-RE04,Invalid Date of Birth non-existent date,John,Smith,1990-02-31,123 Main Street,12345,New York,United States,California,011234567,user19@example.com,Password1$,error,EP
+DB-RE05,Invalid Date of Birth future date,John,Smith,2026-06-08,123 Main Street,12345,New York,United States,California,011234567,user20@example.com,Password1$,error,EP
+DB-RE06,Valid Date of Birth exactly 18 years old,John,Smith,2007-06-08,123 Main Street,12345,New York,United States,California,011234567,user21@example.com,Password1$,success,BVA
+DB-RE07,Invalid Date of Birth exactly 75 years old,John,Smith,1950-06-08,123 Main Street,12345,New York,United States,California,011234567,user22@example.com,Password1$,error,BVA
+AD-RE01,Valid address with alphanumeric characters,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user23@example.com,Password1$,success,EP
+AD-RE02,Valid address with special characters,John,Smith,1995-06-08,Apt #201 15-B West Ave.,12345,New York,United States,California,011234567,user24@example.com,Password1$,success,EP
+AD-RE03,Invalid empty address,John,Smith,1995-06-08,,12345,New York,United States,California,011234567,user25@example.com,Password1$,error,EP
+AD-RE04,Valid address with minimum length,John,Smith,1995-06-08,A,12345,New York,United States,California,011234567,user26@example.com,Password1$,success,BVA
+AD-RE05,Valid address with maximum length,John,Smith,1995-06-08,123 Long Street Address Name That Goes On And On To Test The Maximum Length Allo,12345,New York,United States,California,011234567,user27@example.com,Password1$,success,BVA
+PO-RE01,Valid numeric postcode,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user28@example.com,Password1$,success,EP
+PO-RE02,Invalid postcode with special characters,John,Smith,1995-06-08,123 Main Street,123@56,New York,United States,California,011234567,user29@example.com,Password1$,error,EP
+PO-RE03,Valid postcode with minimum length,John,Smith,1995-06-08,123 Main Street,1,New York,United States,California,011234567,user30@example.com,Password1$,success,BVA
+PO-RE04,Valid postcode with maximum length,John,Smith,1995-06-08,123 Main Street,AB12345678,New York,United States,California,011234567,user31@example.com,Password1$,success,BVA
+PO-RE05,Invalid postcode exceeding maximum length,John,Smith,1995-06-08,123 Main Street,AB123456789,New York,United States,California,011234567,user32@example.com,Password1$,error,BVA
+CI-RE01,Valid city with alphabetic characters,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user33@example.com,Password1$,success,EP
+CI-RE02,Invalid city with numbers,John,Smith,1995-06-08,123 Main Street,12345,London123,United States,California,011234567,user34@example.com,Password1$,error,EP
+CI-RE03,Valid city with minimum length,John,Smith,1995-06-08,123 Main Street,12345,A,United States,California,011234567,user35@example.com,Password1$,success,BVA
+CI-RE04,Valid city with maximum length,John,Smith,1995-06-08,123 Main Street,12345,Llanfairpwllgwyngyllgogerychwyrndrobwll,United States,California,011234567,user36@example.com,Password1$,success,BVA
+CI-RE05,Invalid city exceeding maximum length,John,Smith,1995-06-08,123 Main Street,12345,Llanfairpwllgwyngyllgogerychwyrndrobwlll,United States,California,011234567,user37@example.com,Password1$,error,BVA
+CO-RE01,Valid country,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user38@example.com,Password1$,success,EP
+CO-RE02,Empty country,John,Smith,1995-06-08,123 Main Street,12345,New York,,California,011234567,user39@example.com,Password1$,error,EP
+ST-RE01,Valid state selection relevant to country,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user40@example.com,Password1$,success,EP
+ST-RE02,Empty state,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,,011234567,user41@example.com,Password1$,error,EP
+ST-RE03,Verify state field updates based on country selection,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user42@example.com,Password1$,success,EP
+PH-RE01,Valid phone number with standard format,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user43@example.com,Password1$,success,EP
+PH-RE02,Invalid phone number with letters,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,01555ABCDEFG,user44@example.com,Password1$,error,EP
+PH-RE03,Invalid empty phone number,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,,user45@example.com,Password1$,error,EP
+PH-RE04,Valid phone number with minimum length,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,1234567,user46@example.com,Password1$,success,BVA
+PH-RE05,Valid phone number with maximum length,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,123456789012345678901234,user47@example.com,Password1$,success,BVA
+PH-RE06,Invalid phone number below minimum length,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,123456,user48@example.com,Password1$,error,BVA
+PH-RE07,Invalid phone number exceeding maximum length,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,1234567890123456789012345,user49@example.com,Password1$,error,BVA
+PH-RE08,Invalid phone number with disallowed special characters,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,1234567#,user50@example.com,Password1$,error,EP
+EM-RE01,Valid standard email format,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user@example.com,Password1$,success,EP
+EM-RE02,Valid email with subdomain,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user@sub.example.com,Password1$,success,EP
+EM-RE03,Invalid email missing @ symbol,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,userexample.com,Password1$,error,EP
+EM-RE04,Invalid email missing domain,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user@,Password1$,error,EP
+EM-RE05,Valid minimal length email,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,a@b.co,Password1$,success,BVA
+EM-RE06,Valid maximum length email,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,abcdefghijklmnopqrstuvwxyz.1234567890@very-long-domain-name.com,Password1$,success,BVA
+EM-RE07,Invalid email exceeding maximum length,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,abcdefghijklmnopqrstuvwxyz.1234567890@very-long-domain-name.comm,Password1$,error,BVA
+EM-RE08,Verify email uniqueness,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user@sub.example.com,Password1$,error,EP
+PA-RE01,Empty password field,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user51@example.com,,error,EP
+PA-RE02,Password shorter than minimum length,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user52@example.com,Aa1$,error,BVA
+PA-RE03,Password longer than maximum length,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user53@example.com,Abcdefghij1234567890!@#$%^&*()Abcdefghij1234567890,error,BVA
+PA-RE04,Password missing uppercase letter,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user54@example.com,password123$,error,EP
+PA-RE05,Password missing digit,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user55@example.com,Password$#@,error,EP
+PA-RE06,Password missing special character,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user56@example.com,Password1234,error,EP
+PA-RE07,Valid password with minimum requirements,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user57@example.com,Password1$,success,EP
+PA-RE08,Verify password strength indicator,John,Smith,1995-06-08,123 Main Street,12345,New York,United States,California,011234567,user58@example.com,ComplexP@ssw0rd!,success,EP
+

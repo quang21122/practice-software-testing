@@ -1,0 +1,47 @@
+{
+  "name": "practice-software-testing-cypress",
+  "version": "1.0.0",
+  "description": "Cypress E2E tests for Practice Software Testing application",
+  "main": "index.js",
+  "scripts": {
+    "setup:verify": "node test-setup.js",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "cy:run:chrome": "cypress run --browser chrome",
+    "cy:run:firefox": "cypress run --browser firefox",
+    "cy:run:edge": "cypress run --browser edge",
+    "cy:run:all-browsers": "npm run cy:run:chrome && npm run cy:run:firefox && npm run cy:run:edge",
+    "test:connection": "cypress run --spec 'cypress/e2e/connection-test.cy.js'",
+    "test:smoke": "cypress run --spec 'cypress/e2e/smoke-test.cy.js'",
+    "test:registration": "cypress run --spec 'cypress/e2e/registration.cy.js'",
+    "test:login": "cypress run --spec 'cypress/e2e/login.cy.js'",
+    "test:registration:chrome": "cypress run --spec 'cypress/e2e/registration.cy.js' --browser chrome",
+    "test:registration:firefox": "cypress run --spec 'cypress/e2e/registration.cy.js' --browser firefox",
+    "test:registration:edge": "cypress run --spec 'cypress/e2e/registration.cy.js' --browser edge",
+    "test:login:chrome": "cypress run --spec 'cypress/e2e/login.cy.js' --browser chrome",
+    "test:login:firefox": "cypress run --spec 'cypress/e2e/login.cy.js' --browser firefox",
+    "test:login:edge": "cypress run --spec 'cypress/e2e/login.cy.js' --browser edge",
+    "test:cross-browser": "npm run test:registration:chrome && npm run test:registration:firefox && npm run test:registration:edge && npm run test:login:chrome && npm run test:login:firefox && npm run test:login:edge",
+    "test:headless": "cypress run --headless",
+    "test:headed": "cypress run --headed",
+    "report:generate": "cypress run --reporter mochawesome --reporter-options reportDir=cypress/reports,overwrite=false,html=true,json=true",
+    "report:merge": "mochawesome-merge cypress/reports/*.json > cypress/reports/merged-report.json",
+    "report:html": "marge cypress/reports/merged-report.json --reportDir cypress/reports --inline"
+  },
+  "keywords": [
+    "cypress",
+    "e2e",
+    "testing",
+    "automation",
+    "cross-browser"
+  ],
+  "author": "Test Automation Team",
+  "license": "MIT",
+  "devDependencies": {
+    "csv-parser": "^3.0.0",
+    "cypress": "^14.5.3",
+    "mochawesome": "^7.1.3",
+    "mochawesome-merge": "^4.4.1",
+    "mochawesome-report-generator": "^6.2.0"
+  }
+}

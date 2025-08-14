@@ -1,0 +1,101 @@
+{
+  "validUser": {
+    "firstName": "John",
+    "lastName": "Smith",
+    "dateOfBirth": "08/06/1995",
+    "address": "123 Main Street",
+    "postcode": "12345",
+    "city": "New York",
+    "country": "United States",
+    "state": "California",
+    "phone": "011234567",
+    "email": "test@example.com",
+    "password": "Password@123"
+  },
+  "existingUser": {
+    "email": "test@example.com",
+    "password": "Password@123"
+  },
+  "boundaryTestCases": {
+    "minLengthFirstName": {
+      "firstName": "J",
+      "lastName": "Smith",
+      "dateOfBirth": "08/06/1995",
+      "address": "123 Main Street",
+      "postcode": "12345",
+      "city": "New York",
+      "country": "United States",
+      "state": "California",
+      "phone": "011234567",
+      "email": "minname@example.com",
+      "password": "Password@123"
+    },
+    "maxLengthFirstName": {
+      "firstName": "Abcdefghijklmnopqrstuvwxyzabcdefghijklmn",
+      "lastName": "Smith",
+      "dateOfBirth": "08/06/1995",
+      "address": "123 Main Street",
+      "postcode": "12345",
+      "city": "New York",
+      "country": "United States",
+      "state": "California",
+      "phone": "011234567",
+      "email": "maxname@example.com",
+      "password": "Password@123"
+    },
+    "minAgeUser": {
+      "firstName": "Young",
+      "lastName": "User",
+      "dateOfBirth": "08/06/2007",
+      "address": "123 Main Street",
+      "postcode": "12345",
+      "city": "New York",
+      "country": "United States",
+      "state": "California",
+      "phone": "011234567",
+      "email": "young@example.com",
+      "password": "Password@123"
+    }
+  },
+  "invalidTestCases": {
+    "emptyFields": {
+      "firstName": "",
+      "lastName": "",
+      "dateOfBirth": "",
+      "address": "",
+      "postcode": "",
+      "city": "",
+      "country": "",
+      "state": "",
+      "phone": "",
+      "email": "",
+      "password": ""
+    },
+    "invalidEmail": {
+      "firstName": "John",
+      "lastName": "Smith",
+      "dateOfBirth": "08/06/1995",
+      "address": "123 Main Street",
+      "postcode": "12345",
+      "city": "New York",
+      "country": "United States",
+      "state": "California",
+      "phone": "011234567",
+      "email": "invalid-email",
+      "password": "Password@123"
+    },
+    "weakPassword": {
+      "firstName": "John",
+      "lastName": "Smith",
+      "dateOfBirth": "08/06/1995",
+      "address": "123 Main Street",
+      "postcode": "12345",
+      "city": "New York",
+      "country": "United States",
+      "state": "California",
+      "phone": "011234567",
+      "email": "weak@example.com",
+      "password": "123"
+    }
+  }
+}

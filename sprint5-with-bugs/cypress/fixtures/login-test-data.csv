@@ -1,0 +1,12 @@
+testId,testDescription,email,password,expectedResult,testType
+EM-LO01,Valid Email and Password,test@example.com,Password@123,success,EP
+EM-LO02,Invalid email format,testexample.com,Password@123,error,EP
+EM-LO03,Invalid empty email,,Password@123,error,EP
+EM-LO04,Valid email format but not registered,nonexistent@example.com,Password@123,error,EP
+PA-LO01,Invalid empty password,test@example.com,,error,EP
+PA-LO02,Invalid password not matching,test@example.com,WrongPassword,error,EP
+PA-LO03,Invalid password shorter than minimum,test@example.com,Short123,error,BVA
+PA-LO04,Valid email with minimum length,a@b.co,Password@123,success,BVA
+PA-LO05,Valid email with maximum length,abcdefghijklmnopqrstuvwxyz1234567890@verylongdomainname.com,Password@123,success,BVA
+SE-LO01,Verify CSRF protection,user@example.com,Valid@123,error,EP
+SE-LO02,Verify account lockout after multiple failed attempts,user@example.com,WrongPass123,error,EP
